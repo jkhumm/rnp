@@ -1,0 +1,33 @@
+server:
+  port: 9002
+spring:
+  application:
+    name: lcloud-ceres-rnp
+  kafka:
+    bootstrap-servers: 192.168.1.103:9092,192.168.1.103:9093,192.168.1.103:9094
+    producer:
+      #发送的时候会将Java对象转成json 字节
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+     # properties
+      #spring.json.type.mappring:foo
+    consumer:
+      group-id: fooGroup
+      #properties:
+  datasource:
+    username: root
+    password: humm0516
+    url: jdbc:mysql://localhost:3306/hmmTbl?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 使用druid数据库连接池  数据源 5个里面不存在
+    type: com.zaxxer.hikari.HikariDataSource
+
+
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    safe-row-bounds-enabled: true
+
+com:
+  girl:
+    name: Xtxiu
+    age: 22
